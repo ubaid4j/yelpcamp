@@ -1,0 +1,72 @@
+
+<%-include ../partials/header%>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <h3>Yelp Camp</h3>
+            <ul class="list-group">
+                <li class="list-group-item active">Info 1</li>
+                <li class="list-group-item">Info 2</li>
+                <li class="list-group-item">Info 3</li>
+            </ul>
+        </div>
+
+        <div class="col-md-9">
+            <div class="row">
+                <div class="card">
+                    <img class="card-img-top" src="<%=camp.image%>" class=" img-fluid img_show">
+                    <div class="card-body">
+                        <a href="#" ><h4 class="card-title inline_d"><%=camp.name%></h4></a>
+                        <p class="inline_d float-right">$9.00/night</p>
+                        <p class="card-text"><strong>Description: </strong><%=camp.description%></p>
+                        <p class="card-text"><small class="text-muted"><em>Submitted by: <%=camp.author.username%></em></small></p>
+                    
+                        <%if(currentUser && camp.author.id.equals(currentUser._id)){%>
+                            <a class="btn btn-warning btn-sm" href="/campGround/<%=camp._id%>/edit">Edit</a>
+                            <form id="delete_form" action="\campGround\<%=camp._id%>?_method=DELETE" method="post">
+                                <button class="btn btn-danger btn-sm">Delete</button>
+                            </form>
+                        <%}%>
+                    
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row" style="margin-top: 20px">
+                <div class="img_show card">
+                    <div class="card-header">
+                        <div style="text-align: right">
+                            <a class="btn btn-success "  href="/campGround/<%=camp._id%>/comments/new">Add new Comment</a>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <%camp.comments.forEach(function(com){%>
+                        <div class="comment">
+                            <p class="p_display"><strong><%=com.author.username%></strong><p class="p_display right">10 days ago</p><p id="p_b_m"><%=com.content_text%></p>
+                            
+                            <%if(currentUser && com.author.id.equals(currentUser._id)){%>
+                                <a 
+                                    class="btn btn-sm btn-warning"
+                                    href="/campGround/<%=camp._id%>/comments/<%=com._id%>/edit">
+                                    Edit
+                                </a>
+                                <form id="delete_form" action="/campGround/<%=camp._id%>/comments/<%=com._id%>?_method=DELETE" method="POST">
+                                    <button class="btn btn-sm btn-danger">Delete</button>
+                                </form>
+                            <%}%>
+                            
+                        </div>
+                        <%});%>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<%-include ../partials/footer%>

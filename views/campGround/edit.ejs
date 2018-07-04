@@ -1,0 +1,40 @@
+<%- include ../partials/header%>
+
+<div class="container">
+
+    <div id="center">
+        <h1>Edit <%=camp.name%></h1>
+    </div>
+
+    <div class="row">
+        <div id="top_div">
+            <form action="/campGround/<%=camp._id%>?_method=PUT" method="post">
+
+                <div class="form-group">
+                    <input class="form-control" type="text" value="<%=camp.name%>" name="name">
+                </div>
+
+                <div class="form-group ">
+                    <input class="form-control" type="text" value="<%=camp.image%>" name="image">
+                </div>
+
+                <div class="form-group ">
+                    <input class="form-control" type="text" value="<%=camp.description%>" name="desc">
+                </div>
+
+                <div class="form-group">
+                    <button class="form-control btn btn-primary">Submit</button>
+                </div>
+
+            </form>
+
+            <div>
+                <a href="/campGround">Go Back</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="margin-top: 20px; margin-bottom: 20px">
+</div>
+
+<%- include ../partials/footer%>

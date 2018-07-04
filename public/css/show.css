@@ -1,0 +1,28 @@
+.img_show {
+    width: 100%;
+}
+
+.inline_d{
+    display: inline;
+}
+
+.comment{
+    margin-top: 15px;
+}
+
+.p_display{
+    display: inline;
+}
+
+.right {
+    position: absolute;
+    right: 0px;
+}
+
+#delete_form{
+    display: inline;
+}
+
+#p_b_m{
+    margin-bottom: 5px;
+}
