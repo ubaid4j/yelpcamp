@@ -19,7 +19,9 @@ let     indexRouter                 =   require("./routers/index"),
 
 //connection
 let db_url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp" 
-console.log(db_url);
+
+mongoose.connect(db_url);
+
 //mongoose.connect("mongodb://localhost/yelp_camp");
 
 //mongoose.connect("mongodb://ubaid:(Ubaid)008@ds231460.mlab.com:31460/yelp_camp");
