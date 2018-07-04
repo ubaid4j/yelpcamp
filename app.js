@@ -18,7 +18,9 @@ let     indexRouter                 =   require("./routers/index"),
         campGroundRouter            =   require("./routers/campGround");
 
 //connection
-mongoose.connect("mongodb://localhost/yelp_camp");
+//mongoose.connect("mongodb://localhost/yelp_camp");
+
+mongoose.connect("mongodb://ubaid:(Ubaid)008@ds231460.mlab.com:31460/yelp_camp");
 
 
 //==============================================app set===============================================//
